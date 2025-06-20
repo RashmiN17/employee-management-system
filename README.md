@@ -51,9 +51,12 @@ A full-stack web application for managing employee records, built using **Angula
 ### Frontend Setup
 
 ```bash
-cd employee-management-frontend
+cd employee-management-system
 npm install
+npm install bootstrap@5 font-awesome @angular/material @angular/cdk ngx-spinner ngx-toastr ng-multiselect-dropdown @ng-bootstrap/ng-bootstrap
+
 ng serve
+
 
 ### Database Setup
  Default Login
