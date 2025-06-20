@@ -1,0 +1,23 @@
+.header {
+    height: 100px;
+    background-color: #276bd9;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins';
+
+}
+
+.background-image {
+    background-image: url("C:/Development/Employee Management System/employee-management-system/public/Employee Data Management.jpg");
+    height: 84vh;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: fixed;
+}
+
+p,input,label,button{
+    font-family: 'Poppins';
+}

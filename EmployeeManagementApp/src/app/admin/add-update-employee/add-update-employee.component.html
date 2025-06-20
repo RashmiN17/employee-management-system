@@ -1,0 +1,55 @@
+<div class="container mt-4">
+    <form #empForm="ngForm">
+        <!-- Name -->
+        <div class="form-group">
+            <label for="empName">Employee Name</label>
+            <input type="text" id="empName" name="empName" class="form-control" required #name="ngModel"
+                [(ngModel)]="employee.empName" />
+            <small *ngIf="name.errors && name.touched" class="text-danger">Name is Required</small>
+        </div>
+
+        <!-- Salary -->
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <input type="number" id="salary" name="salary" class="form-control" required  #salary="ngModel"
+                [(ngModel)]="employee.salary" />
+
+                <small *ngIf="salary.errors && salary.touched" class="text-danger">Salaryis Required</small>
+        </div>
+
+        <!-- Designation -->
+        <div class="form-group">
+            <label for="designation">Designation</label>
+            <select id="designation" name="designationId" class="form-control" required #designation="ngModel"
+                [(ngModel)]="employee.designationId">
+                <option [ngValue]="0" disabled>Select designation</option>
+                <option *ngFor="let desig of designations" [value]="desig.id">
+                    {{ desig.name }}
+                </option>
+            </select>
+            <small *ngIf="designation.errors && designation.touched" class="text-danger">Designation is Required</small>
+        </div>
+        <!-- Department -->
+        <div class="form-group">
+            <label for="department">Department</label>
+            <select id="department" name="department" class="form-control" required #department="ngModel"
+                [(ngModel)]="employee.departmentId">
+                <option [ngValue]="0" disabled>Select designation</option>
+                <option *ngFor="let department of departmentList" [value]="department.id">
+                    {{ department.name }}
+                </option>
+            </select>
+            <small *ngIf="department.errors && department.touched" class="text-danger">Departmentis Required</small>
+        </div>
+
+        <!-- Hidden ID field for update case -->
+        <input type="hidden" name="empId" [(ngModel)]="employee.empId" />
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary mt-2 mb-3" [disabled]="empForm.invalid"  (click)="onSubmit()">
+            {{ employee.empId ? 'Update' : 'Add' }} Employee
+        </button>
+        &nbsp;
+        <button class="btn btn-danger" (click)="closeForm(true)">Cancel</button>
+    </form>
+</div>

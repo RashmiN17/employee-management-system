@@ -1,0 +1,14 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+.angular/
+out-tsc/
+
+# IDE and logs
+.vscode/
+*.log
+
+# Environment files
+.env

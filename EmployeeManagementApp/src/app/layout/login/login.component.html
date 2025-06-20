@@ -1,0 +1,49 @@
+<div class="header">
+    <p><i class="fas fa-users p-3 "></i>Employee Management System</p>
+</div>
+<div class="row">
+    <div class="col-md-7 background-image"></div>
+    <div class="col-md-5 d-flex justify-content-center align-items-center">
+        <div class="card">
+            <div class="card-body">
+                <p class="h1 card-title text-center text-primary">Login</p>
+                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label class="form-label text-dark">Username</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white"><i class="fas fa-user text-primary"></i></span>
+                        <input type="text" formControlName="username" class="form-control" placeholder="Enter your Username">
+                    </div>
+                    <div class="text-danger mt-1" *ngIf="f['username'].touched && f['username'].errors">
+                        <small *ngIf="f['username'].errors['required']">Email is required.</small>
+                        <small *ngIf="f['username'].errors['email']">Enter a valid email.</small>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label class="form-label text-dark">Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white"><i class="fas fa-lock text-primary"></i></span>
+                        <input [type]="showPassword ? 'text' : 'password'" formControlName="password"
+                            class="form-control" placeholder="Enter your password">
+                        <span class="input-group-text bg-white" (click)="togglePassword()" style="cursor: pointer;">
+                            <i [class]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+                        </span>
+                    </div>
+                    <div class="text-danger mt-1" *ngIf=" f['password'].touched &&f['password'].errors">
+                        <small *ngIf="f['password'].errors['required']">Password is required.</small>
+                        <small *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters.</small>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <button class="btn btn-primary w-100 mt-3 sign-in-alt">Login</button>
+            </form>
+            </div>
+        </div>
+
+    </div>
+</div>

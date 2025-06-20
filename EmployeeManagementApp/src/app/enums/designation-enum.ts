@@ -1,0 +1,17 @@
+export enum DesignationEnum {
+
+	SOFTWARE_DEVLOPER = 1,
+	TEAM_LEAD = 2,
+	MANAGER = 3,
+	SOFTWARE_TESTER = 4,
+	DEVOPS_ENGINEER = 5
+}
+
+
+export enum DepartmentEnum {
+		HUMAN_RESOURCE_DEPARTMENT=1,
+		SOFTWARE_DEVLOPMENT=2,
+		DEVOPS=3,
+		MARKETING=4,
+		QUALITY_ASSURANCE=5
+}

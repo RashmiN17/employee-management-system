@@ -1,0 +1,63 @@
+<div class="header row">
+    <div class="col-md-8">
+        <p class="ms-3">Employee Management System</p>
+    </div>
+    <div class="col-md-4 text-end">
+        <button class="btn btn-success button-text" (click)="logout()"><i class="fas fa-sign-in-alt"></i>
+            Logout</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-5 mt-4  left-controls ">
+        <input type="text" class="form-control w-50" name="search" id="search" placeholder="Search By Name and Designation"
+            (keyup)="onSearch($event)">
+        &nbsp;
+        <div *ngIf="isFilterOpen" class="d-flex gap-2">
+            <ng-multiselect-dropdown [placeholder]="'Select Department'"
+                [settings]="commonService.getDropDownSettingWithSearch('id','name')" [(ngModel)]="selectedDepartments"
+                [data]="departmentList" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
+                (onDeSelect)="onItemDeselect($event)" (onDeSelectAll)="onDeselectAll()" (ngModelChange)="onChange()">
+            </ng-multiselect-dropdown>
+            <button type="button" class="btn-close mt-2" (click)="openFilter()" aria-label="Close"></button>
+        </div>
+
+        &nbsp;
+        <button class="btn btn-success" (click)="openFilter()"><i class="fas fa-filter"></i> Filters</button>
+
+    </div>
+    <div class="col-md-2 mt-4">
+        <button class="btn btn-success" (click)="openForm('Add')"><i class="fas fa-plus"></i>Add Employee</button>
+    </div>
+</div>
+<div class="scrollable m-4">
+    <table class="table table-striped">
+        <thead>
+            <th>Sl No</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Designation</th>
+            <th>Depatment</th>
+            <th>Action</th>
+        </thead>
+        <tr *ngFor="let employee of employeeList;let i=index;" [ngClass]="{'alt-row':i%2==0}">
+            <td>{{(commonGetPayload.pageNo*commonService.noOfRecords)+i+1 }}</td>
+            <td>{{employee.empName}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.designation.name}}</td>
+            <td>{{employee.department.name}}</td>
+            <td>
+                <button class=" btn m-2" (click)="openForm('Update',employee.empId)">
+                    <i class="fas fa-edit text-primary"></i>
+                </button>
+                <button class="btn" (click)="deleteEmployee(employee.empId)">
+                    <i class="fas fa-trash text-danger"></i>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <mat-paginator [length]="paginationObj.totalRecords" [pageSize]="commonService.noOfRecords"
+        [pageIndex]="paginationObj.pageIndex" disabled="false" showFirstLastButtons="true"
+        (page)="handlePageEvent($event)" aria-label="Select Page">
+    </mat-paginator>
+</div>

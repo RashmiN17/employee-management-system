@@ -1,0 +1,44 @@
+.alt-row{
+    background: #e3f2fd;
+}
+.header {
+    height: 100px;
+    background-color: #276bd9;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins';
+
+}
+.button-text{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+::ng-deep .multiselect-dropdown .dropdown-btn {
+  height: 40px;               /* lock button height */
+  line-height: 38px;          /* center text vertically */
+  overflow: hidden;           /* hide overflow */
+  white-space: nowrap;        /* prevent line breaks */
+  text-overflow: ellipsis;    /* add "..." if text is too long */
+  padding-right: 30px;   
+   width: 300px;     /* avoid cutting dropdown arrow */
+}
+
+.left-controls{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.search{
+    min-width:50px;
+}
+::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-down {
+      visibility: hidden;
+  display: none !important;
+}
+
